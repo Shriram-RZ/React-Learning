@@ -1,6 +1,7 @@
 
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import JSXRules from "./components/JSXRules";
 import Main from "./components/Main";
 import WelcomeMessage from "./components/WelcomeMessage";
 
@@ -15,7 +16,8 @@ function App(){
       Main Content
     </article>
   </section> */}
-  <WelcomeMessage></WelcomeMessage>
+  {/* <WelcomeMessage></WelcomeMessage> */}
+  <JSXRules></JSXRules>
 
   </>;
 }
