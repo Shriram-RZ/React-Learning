@@ -1,0 +1,19 @@
+/* MyComponent.css */
+.container {
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+  }
+  
+  .heading {
+    font-size: 2rem;
+    color: #333;
+  }
+  
+  .description {
+    font-size: 1rem;
+    color: #555;
+  }
+  
