@@ -1,15 +1,12 @@
 import React from 'react'
-import Stylecard from './components/Stylecard'
-import Usercard from './components/Usercard'
-import Iconcard from './components/Iconcard'
 
+
+const Button = ()=>{
+  return <button onClick={()=>{console.log('Clicked Me')}}>Click Me</button>
+}
 const App = () => {
   return (
-    <div>
-      <Stylecard></Stylecard>
-      <Usercard></Usercard>
-      <Iconcard></Iconcard>
-    </div>
+    <Button></Button>
   )
 }
 
