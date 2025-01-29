@@ -1,18 +1,33 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
 const App = () => {
+  const [friends, setfriends] = useState(["John Doe", "Luffy"]);
+  const addFriend = () => {
+    setfriends([...friends, "Robin"]);
+  };
+  const removeFriend = () => {
+    setfriends(
+      friends.filter((friend) => {
+        return friend !== 'John Doe';
+      })
+    );
+  };
+  const updateFriend = ()=>{
+    setfriends(friends.map((friend)=>friend == 'John Doe'?'Nami':friend))
+  }
+  
 
-  const [count , setCount] = useState(0);
-  const increment = ()=>{setCount(count+1)}
-  const decrement = ()=>{setCount(count-1)}
-
+  
   return (
     <div>
-      <h1>{count}</h1>
-      <button onClick={increment}>+</button>
-      <button onClick={decrement}>-</button>
+      {friends.map((friend) => {
+        return <li>{friend}</li>;
+      })}
+      <button onClick={addFriend}>Add Friend</button>
+      <button onClick={removeFriend}>Remove Friend</button>
+      <button onClick={updateFriend}>Update Friend</button>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
