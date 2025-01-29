@@ -1,29 +1,25 @@
-import React from 'react'
-import { useState } from 'react'
+import React, { useState } from 'react'
+import Componentone from './components/Componentone'
+import Componenttwo from './components/Componenttwo'
+
 
 const App = () => {
-  const [movieDetails,setmovieDetails] = useState([
-    {Id:1,MovieName : "Luffy",Rating:10},
-    {Id:2,MovieName : "Robin",Rating:4}
-  ])
-  function handleClick(){
-    setmovieDetails(movieDetails.map((movie)=>movie.Id == '1' ? {...movie,MovieName:"Nami"}: movie))
+  const [count,setcount] = useState(0)
+  function iclickFunction(){
+    setcount(count+1)
+  }
+  function dclickFunction(){
+    setcount(count-1)
   }
 
-
   return (
-    <div>
-      {
-      movieDetails.map((movie)=>(
-        <div>
-          <h1>{movie.MovieName}</h1>
-          <h1>{movie.Rating}</h1>
-          </div>
-        )) 
-        }
+    <>
 
-      <button onClick={handleClick}>Click Me</button>
-    </div>
+
+    <Componentone count={count} clickHandler={iclickFunction}/>
+    <Componenttwo count={count} clickHandler={dclickFunction}/>
+
+    </>
   )
 }
 
