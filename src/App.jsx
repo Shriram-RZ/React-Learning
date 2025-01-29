@@ -1,33 +1,21 @@
-import React, { useState } from "react";
+import React from 'react'
+import { useState } from 'react'
 
 const App = () => {
-  const [friends, setfriends] = useState(["John Doe", "Luffy"]);
-  const addFriend = () => {
-    setfriends([...friends, "Robin"]);
-  };
-  const removeFriend = () => {
-    setfriends(
-      friends.filter((friend) => {
-        return friend !== 'John Doe';
-      })
-    );
-  };
-  const updateFriend = ()=>{
-    setfriends(friends.map((friend)=>friend == 'John Doe'?'Nami':friend))
-  }
-  
 
-  
+  const [card,setcard] = useState({"Movie-Name":"Equaliser","Rating":10})
+
+  function changeRate(){
+    const copyMovie = {...card,"Rating":"e2dfefefe"}
+    setcard(copyMovie)
+  }
   return (
     <div>
-      {friends.map((friend) => {
-        return <li>{friend}</li>;
-      })}
-      <button onClick={addFriend}>Add Friend</button>
-      <button onClick={removeFriend}>Remove Friend</button>
-      <button onClick={updateFriend}>Update Friend</button>
+      {card['Movie-Name']}
+      {card.Rating}
+      <button onClick={changeRate}>Click</button>
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App
