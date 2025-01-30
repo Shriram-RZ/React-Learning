@@ -1,26 +1,41 @@
 import React, { useState } from 'react'
-import Todolist from './components/Todolist';
+import Profile from './components/Profile'
 
 const App = () => {
-  const [task,settask] = useState("");
-  const [tasks,settasks] = useState([]);
-  const addTask = (e)=>{
+  const [profile,setprofile] = useState({name:"",age:""});
+
+
+
+  const addNameProfile = (e)=>{
     e.preventDefault();
-      settasks([...tasks,task])
-    
-    settask("");
+    setprofile({...profile,name:e.target.value})
+
   }
+  const addAgeProfile = (e)=>{
+    e.preventDefault();
+    setprofile({...profile,age:e.target.value})
+
+  }
+
+  const addProfile = (e)=>{
+    e.preventDefault();
+  }
+  
+
   return (
     <div>
-      <h1>TO DO TASK</h1>
-      <form onSubmit={addTask}>
 
-        <label>Enter a task :</label>
-        <input type='text' placeholder='Enter a task' value={task} onChange={(e)=>settask(e.target.value)}></input>
+      <form onSubmit={addProfile}>
+        <label>Enter Your name : </label>
+        <input type='text'  value={profile.name} onChange={addNameProfile}></input>
+        <br></br>
+        <label>Enter Your age : </label>
+        <input type='number' value={profile.age} onChange={addAgeProfile}></input>
+        <br></br>
         <button type="submit">Submit</button>
 
       </form>
-      <Todolist tasks={tasks}></Todolist>
+      <Profile name={profile.name} age={profile.age}></Profile>
     </div>
   )
 }
