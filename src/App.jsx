@@ -1,25 +1,15 @@
 import React, { useState } from 'react'
-import Componentone from './components/Componentone'
-import Componenttwo from './components/Componenttwo'
-
 
 const App = () => {
-  const [count,setcount] = useState(0)
-  function iclickFunction(){
-    setcount(count+1)
+  const [count,setcount] = useState(0);
+  function clickHandle(){
+    setcount(count+1);
   }
-  function dclickFunction(){
-    setcount(count-1)
-  }
-
   return (
-    <>
-
-
-    <Componentone count={count} clickHandler={iclickFunction}/>
-    <Componenttwo count={count} clickHandler={dclickFunction}/>
-
-    </>
+    <div>
+      <h1>{count}</h1>
+      <button onClick={clickHandle}>Click</button>
+    </div>
   )
 }
 
