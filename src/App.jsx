@@ -1,14 +1,26 @@
 import React, { useState } from 'react'
+import Todolist from './components/Todolist';
 
 const App = () => {
-  const [count,setcount] = useState(0);
-  function clickHandle(){
-    setcount(count+1);
+  const [task,settask] = useState("");
+  const [tasks,settasks] = useState([]);
+  const addTask = (e)=>{
+    e.preventDefault();
+      settasks([...tasks,task])
+    
+    settask("");
   }
   return (
     <div>
-      <h1>{count}</h1>
-      <button onClick={clickHandle}>Click</button>
+      <h1>TO DO TASK</h1>
+      <form onSubmit={addTask}>
+
+        <label>Enter a task :</label>
+        <input type='text' placeholder='Enter a task' value={task} onChange={(e)=>settask(e.target.value)}></input>
+        <button type="submit">Submit</button>
+
+      </form>
+      <Todolist tasks={tasks}></Todolist>
     </div>
   )
 }
