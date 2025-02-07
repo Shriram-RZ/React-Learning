@@ -1,29 +1,14 @@
-import React, { useState } from 'react'
-import Userprofile from './components/Userprofile'
-import { createContext } from 'react';
-
-export const data = createContext();
+import React from 'react'
+import { useState } from 'react';
+import { useEffect } from 'react'
+import Count from './components/Count';
 
 const App = () => {
-  const [name , setname] = useState("");
-  const [submittedname , setsubmittedname] = useState("");
-  const handleSubmit = (e)=>{
-    e.preventDefault();
-    setsubmittedname(name);
-    setname("");
-    
+  const [count,setcount] = useState(0);
 
-
-  };
-  return (<>
-  <form onSubmit={handleSubmit}>
-    <label>Update Name : </label>
-    <br></br>
-    <input type='text' placeholder='Enter your name' value={name} onChange={(e)=>{setname(e.target.value)}}></input>
-    <button type='submit'>Submit</button>
-  </form>
-  <data.Provider value={submittedname}><Userprofile></Userprofile></data.Provider>
-        </>
+useEffect(()=>{console.log("USEEFFECT")},[])
+  return (
+    <Count></Count>
   )
 }
 
